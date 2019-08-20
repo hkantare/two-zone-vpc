@@ -106,10 +106,10 @@ resource ibm_is_floating_ip "fip2" {
   target = "${ibm_is_instance.vsi2.primary_network_interface.0.id}"
 }
 
-output sshcommand {
-  value = "ssh root@${ibm_is_floating_ip.fip1.address}"
+output instance1_ssh {
+  value = "ssh ryan@${ibm_is_floating_ip.fip1.address}"
 }
 
-output sshcommand {
-  value = "ssh root@${ibm_is_floating_ip.fip2.address}"
+output instance2_ssh {
+  value = "ssh ryan@${ibm_is_floating_ip.fip2.address}"
 }
