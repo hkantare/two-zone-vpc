@@ -91,7 +91,7 @@ resource ibm_is_instance "vsi2" {
   resource_group = "${data.ibm_resource_group.group.id}"
 
   primary_network_interface = {
-    subnet          = "${ibm_is_subnet.subnet1.id}"
+    subnet          = "${ibm_is_subnet.subnet2.id}"
     security_groups = ["${ibm_is_security_group.sg1.id}"]
   }
 }
