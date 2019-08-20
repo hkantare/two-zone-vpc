@@ -5,7 +5,7 @@ data "ibm_resource_group" "group" {
 locals {
   BASENAME = "rttf"
   ZONE1    = "us-south-1"
-  ZONE2    = "us-south2"
+  ZONE2    = "us-south-2"
 }
 
 resource ibm_is_vpc "vpc" {
