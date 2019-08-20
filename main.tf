@@ -16,6 +16,7 @@ resource ibm_is_vpc "vpc" {
 resource ibm_is_security_group "sg1" {
   name           = "${local.BASENAME}-sg1"
   vpc            = "${ibm_is_vpc.vpc.id}"
+  resource_group = "${data.ibm_resource_group.group.id}"
 }
 
 # allow all incoming network traffic on port 22
@@ -30,15 +31,10 @@ resource "ibm_is_security_group_rule" "ingress_ssh_all" {
   }
 }
 
-resource "ibm_is_public_gateway" "testacc_gateway" {
+resource "ibm_is_public_gateway" "gateway" {
   name = "${local.BASENAME}-vpc-gw"
   vpc  = "${ibm_is_vpc.vpc.id}"
   zone = "us-south-1"
-
-  //User can configure timeouts
-  timeouts {
-    create = "90m"
-  }
 }
 
 resource ibm_is_subnet "subnet1" {
