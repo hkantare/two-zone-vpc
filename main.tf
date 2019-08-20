@@ -16,7 +16,6 @@ resource ibm_is_vpc "vpc" {
 resource ibm_is_security_group "sg1" {
   name           = "${local.BASENAME}-sg1"
   vpc            = "${ibm_is_vpc.vpc.id}"
-  resource_group = "${data.ibm_resource_group.group.id}"
 }
 
 # allow all incoming network traffic on port 22
