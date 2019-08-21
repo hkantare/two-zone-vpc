@@ -1,5 +1,5 @@
 data "ibm_resource_group" "group" {
-  name = "Default"
+  name = "default"
 }
 
 locals {
